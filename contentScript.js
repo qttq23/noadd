@@ -3,16 +3,18 @@
 
 
 	const xpathBtnSkip = '//*[@id="skip-button:6"]/span/button';
+	const classBtnSkip = '.ytp-ad-skip-button.ytp-button';
 	const xpathDivAd = '//*[@id="movie_player"]/div[4]';
 	let isMutable = true;
 	function getElementByXpath(path) {
 		return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
 	}
 	function skipAd() {
-		let btnSkip = getElementByXpath(xpathBtnSkip);
-		if(btnSkip) {
-			console.log('found skip btn');
-			btnSkip.click();
+
+		let listBtnSkip3 = document.querySelectorAll(classBtnSkip);
+		for(let btn of listBtnSkip3) {
+			console.log('found skip btn3');
+			btn.click();
 		}
 	}
 	function muteAd() {
